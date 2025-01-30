@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitWay - Спортивный Магазин</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #28a745;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .product-card {
+            width: 30%;
+            margin: 10px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .product-card img {
+            width: 100%;
+            height: auto;
+        }
+        .filter {
+            text-align: center;
+            margin: 20px 0;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FitWay - Всё для активного образа жизни</h1>
+    </header>
+<div class="hero">
+        <h2>Будь в форме с FitWay!</h2>
+        <p>Лучшая экипировка и товары для спорта.</p>
+    </div>
+    <nav>
+        <a href="#products">Товары</a>
+        <a href="#promo">Акции</a>
+        <a href="#contact">Контакты</a>
+    </nav>
+
+    <div class="filter">
+        <label for="category">Выберите категорию:</label>
+        <select id="category" onchange="filterProducts()">
+            <option value="all">Все</option>
+            <option value="shoes">Кроссовки</option>
+            <option value="clothing">Спортивная одежда</option>
+            <option value="accessories">Аксессуары</option>
+        </select>
+    </div>
+
+    <div class="product-container" id="product-list">
+        <div class="product-card" data-category="shoes">
+            <img src="https://a.lmcdn.ru/product/N/I/NI464AWCV362_1.jpg" alt="Кроссовки">
+            <h3>Кроссовки</h3>
+            <p>Удобные и стильные кроссовки для любых тренировок.От 20000тг</p>
+        </div>
+        <div class="product-card" data-category="clothing">
+            <img src="https://footballroom.ru/upload/iblock/5e4/5e423ace228e8f39c4ac5a80759f70ac.png" alt="Спортивная форма">
+            <h3>Спортивная форма</h3>
+            <p>Одежда для тренировок и активного отдыха.От 15000тг</p>
+        </div>
+        <div class="product-card" data-category="accessories">
+            <img src="https://img.alicdn.com/imgextra/i2/2956321021/O1CN01FXDfNH1JPezDd0juC_!!0-item_pic.jpg" alt="Фитнес-аксессуары">
+            <h3>Фитнес-аксессуары</h3>
+            <p>Все, что нужно для занятий спортом дома и в зале.От 500тг</p>
+        </div>
+    </div>
+<section id="promo" class="promo">
+        <h2>Наши акции</h2>
+        <p>Скидка 20% на первую покупку!</p>
+        <p>При покупке от 5000 тенге — доставка бесплатно!</p>
+    </section>
+    <footer>
+      <section id="contact" class="contact">
+        <h2>Контакты</h2>
+        <p>Адрес: г. Астана, пр. Туран, д. 10</p>
+        <p>Телефон: +7 (777) 255-50-87</p>
+        <p>Email: info@fitway.kz</p>
+    </section>
+        <p>&copy; 2025 FitWay. Все права защищены.</p>
+    </footer>
+
+    <script>
+        function filterProducts() {
+            var category = document.getElementById('category').value;
+            var products = document.querySelectorAll('.product-card');
+
+            products.forEach(function(product) {
+                if (category === 'all' || product.dataset.category === category) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
